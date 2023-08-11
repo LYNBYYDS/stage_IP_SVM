@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Jul 25 12:31:09 2023
+# Process ID: 46422
+# Current directory: /home/ly/Desktop/stage_IP_SVM/SVM/SVM.sim/sim_1/behav/xsim
+# Command line: wbtcv -mode batch -source /home/ly/Desktop/stage_IP_SVM/SVM/SVM.sim/sim_1/behav/xsim/xsim.dir/Twos_Complement_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/ly/Desktop/stage_IP_SVM/SVM/SVM.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: /home/ly/Desktop/stage_IP_SVM/SVM/SVM.sim/sim_1/behav/xsim/webtalk.jou
+#-----------------------------------------------------------
+source /home/ly/Desktop/stage_IP_SVM/SVM/SVM.sim/sim_1/behav/xsim/xsim.dir/Twos_Complement_tb_behav/webtalk/xsim_webtalk.tcl -notrace

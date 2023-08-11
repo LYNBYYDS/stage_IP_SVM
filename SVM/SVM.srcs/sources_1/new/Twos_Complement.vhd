@@ -33,8 +33,8 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --use UNISIM.VComponents.all;
 
 entity Twos_Complement is
-    Port (  input_a : in std_logic_vector(17 downto 0);
-            output_s : out std_logic_vector(17 downto 0)
+    Port (  input_a : in std_logic_vector(27 downto 0);
+            output_s : out std_logic_vector(27 downto 0)
             );
 end Twos_Complement;
 
@@ -42,6 +42,7 @@ architecture Behavioral of Twos_Complement is
 
 begin
 
-output_s <= (not ('0'&input_a(16 downto 0))) + '1';
-
+    output_s <= (not ('0'&input_a(26 downto 0))) + '1' when input_a(27) = '1' else
+                input_a;
+    
 end Behavioral;
