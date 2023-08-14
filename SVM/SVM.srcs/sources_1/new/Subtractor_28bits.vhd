@@ -2,7 +2,7 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 08/07/2023 03:09:47 PM
+-- Create Date: 
 -- Design Name: 
 -- Module Name: Subtractor_28bits - Behavioral
 -- Project Name: 
@@ -45,7 +45,7 @@ end Subtractor_28bits;
 architecture Behavioral of Subtractor_28bits is
 
 component Negate_28bits is 
-    Port (  input_a : in std_logic_vector(27 downto 0);
+    Port (  input : in std_logic_vector(27 downto 0);
             output : out std_logic_vector(27 downto 0)
             );
 end component;
@@ -56,7 +56,7 @@ signal output_s : std_logic_vector(28 downto 0);
 begin
 
     Negate_28bits_0 : Negate_28bits
-        port map (  input_a => input_b,
+        port map (  input => input_b,
                     output => neg_b);
 
     output_s <=  input_a(27 downto 0) + input_b(27 downto 0);

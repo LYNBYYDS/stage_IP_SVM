@@ -2,7 +2,7 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 08/07/2023 03:20:21 PM
+-- Create Date: 
 -- Design Name: 
 -- Module Name: Square_Difference - Behavioral
 -- Project Name: 

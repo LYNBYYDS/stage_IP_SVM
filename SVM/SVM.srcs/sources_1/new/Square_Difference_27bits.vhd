@@ -2,7 +2,7 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 07/26/2023 08:40:53 PM
+-- Create Date: 
 -- Design Name: 
 -- Module Name: Square_Difference_27bits - Behavioral
 -- Project Name: 

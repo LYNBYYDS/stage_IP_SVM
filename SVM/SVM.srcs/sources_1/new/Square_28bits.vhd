@@ -2,7 +2,7 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 08/07/2023 02:46:24 PM
+-- Create Date: 
 -- Design Name: 
 -- Module Name: Square_28bits - Behavioral
 -- Project Name: 

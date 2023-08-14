@@ -2,7 +2,7 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 07/26/2023 08:26:45 PM
+-- Create Date: 
 -- Design Name: 
 -- Module Name: Adder_27bits - Behavioral
 -- Project Name: 

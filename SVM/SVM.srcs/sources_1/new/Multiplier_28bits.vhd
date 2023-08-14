@@ -2,7 +2,7 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 08/07/2023 02:55:46 PM
+-- Create Date: 
 -- Design Name: 
 -- Module Name: Multiplier_28bits - Behavioral
 -- Project Name: 

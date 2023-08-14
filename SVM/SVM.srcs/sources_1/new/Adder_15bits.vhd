@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 
 -- Design Name: 
--- Module Name: Twos_Complement_Inv_27bits - Behavioral
+-- Module Name: Adder_15bits - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 -- Uncomment the following library declaration if using
@@ -32,17 +33,26 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Twos_Complement_Inv_27bits is
-    Port (  input_a : in std_logic_vector(27 downto 0);
-            output_s : out std_logic_vector(27 downto 0)
+entity Adder_15bits is
+    Port (  carry_in : in std_logic;
+            input_a : in std_logic_vector(14 downto 0);
+            input_b : in std_logic_vector(14 downto 0);
+            output : out std_logic_vector(14 downto 0);
+            carry_out : out std_logic
             );
-end Twos_Complement_Inv_27bits;
+end Adder_15bits;
 
-architecture Behavioral of Twos_Complement_Inv_27bits is
+architecture Behavioral of Adder_15bits is
+
+signal output_s : std_logic_vector(15 downto 0);
 
 begin
 
-    output_s <= '1' & (not (input_a(26 downto 0) - '1')) when input_a(27) = '1' else
-                input_a;
-
+    output_s <=  input_a(14 downto 0) + input_b(14 downto 0);
+            
+    carry_out <=    '1' when output_s(15) = '1' else
+                    '0';
+                
+    output <= output_s(14 downto 0);
+    
 end Behavioral;

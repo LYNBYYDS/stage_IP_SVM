@@ -2,7 +2,7 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 08/07/2023 03:08:49 PM
+-- Create Date: 
 -- Design Name: 
 -- Module Name: Kernal_rbf - Behavioral
 -- Project Name: 
@@ -40,8 +40,9 @@ entity Kernal_rbf is
             SV_dim5 : in std_logic_vector(27 downto 0);
             SV_dim6 : in std_logic_vector(27 downto 0);
             SV_dim7 : in std_logic_vector(27 downto 0);
+            gamma : in std_logic_vector(27 downto 0);
             test_data : in std_logic_vector(27 downto 0);
-            output : out std_logic_vector(43 downto 0)
+            output : out std_logic_vector(10 downto 0)
             );
 end Kernal_rbf;
 
@@ -63,6 +64,19 @@ component Adder_44bits is
             );
 end component;
 
+component Multiplier_28bits is 
+    Port (  input_a : in std_logic_vector(27 downto 0);     
+            input_b : in std_logic_vector(27 downto 0);
+            output : out std_logic_vector(44 downto 0)   
+            );
+end component;
+
+component Exponential is
+    Port (  input : in std_logic_vector(43 downto 0);
+            output : out std_logic_vector(10 downto 0)
+            );
+end component;
+
 signal sqrt_s0 : std_logic_vector(43 downto 0);
 signal sqrt_s1 : std_logic_vector(43 downto 0);
 signal sqrt_s2 : std_logic_vector(43 downto 0);
@@ -71,6 +85,13 @@ signal sqrt_s4 : std_logic_vector(43 downto 0);
 signal sqrt_s5 : std_logic_vector(43 downto 0);
 signal sqrt_s6 : std_logic_vector(43 downto 0);
 signal sqrt_s7 : std_logic_vector(43 downto 0);
+signal add_s00 : std_logic_vector(43 downto 0);
+signal add_s01 : std_logic_vector(43 downto 0);
+signal add_s02 : std_logic_vector(43 downto 0);
+signal add_s03 : std_logic_vector(43 downto 0);
+signal add_s10 : std_logic_vector(43 downto 0);
+signal add_s11 : std_logic_vector(43 downto 0);
+signal add_s20 : std_logic_vector(43 downto 0);
 signal carry_s00 : std_logic;
 signal carry_s01 : std_logic;
 signal carry_s02 : std_logic;
@@ -78,6 +99,7 @@ signal carry_s03 : std_logic;
 signal carry_s10 : std_logic;
 signal carry_s11 : std_logic;
 signal carry_s20 : std_logic;
+signal multi : std_logic_vector(43 downto 0);
 
 begin
 
@@ -114,7 +136,7 @@ begin
     Square_Difference_5 : Square_Difference
         port map (  input_a => SV_dim5,
                     input_b => test_data,
-                    output => sqrt_s75
+                    output => sqrt_s5
                     );
                     
     Square_Difference_6 : Square_Difference
@@ -185,5 +207,14 @@ begin
                     output => add_s20,
                     carry_out => carry_s20
                     );
-
+                    
+    Multiplier_28bits_0 : Multiplier_28bits
+    port map (  input_a => add_s20,
+                input_b => gamma,
+                output => multi);                
+                    
+    Exponential_0 : Exponential
+        port map (  input => multi,
+                    output => output
+                    );
 end Behavioral;
