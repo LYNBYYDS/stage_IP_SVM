@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Thu Aug 24 04:45:11 2023
+# Process ID: 9880
+# Current directory: C:/Users/liyon/Desktop/Exponential/Exponential.runs/synth_1
+# Command line: vivado.exe -log Exponential.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Exponential.tcl
+# Log file: C:/Users/liyon/Desktop/Exponential/Exponential.runs/synth_1/Exponential.vds
+# Journal file: C:/Users/liyon/Desktop/Exponential/Exponential.runs/synth_1\vivado.jou
+# Running On: DESKTOP-L6ICV7M, OS: Windows, CPU Frequency: 1797 MHz, CPU Physical cores: 16, Host memory: 16520 MB
+#-----------------------------------------------------------
+source Exponential.tcl -notrace

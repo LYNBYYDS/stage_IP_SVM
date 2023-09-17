@@ -1,8 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../SVM.srcs/sources_1/new/Twos_Complement.vhd" \
-"../../../../SVM.srcs/sources_1/new/Twos_Complement_Inv.vhd" \
-"../../../../SVM.srcs/sim_1/new/Twos_Complement_tb.vhd" \
-
-# Do not sort compile order
-nosort

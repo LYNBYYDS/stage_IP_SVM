@@ -1,7 +1,0 @@
-Vivado Simulator 2020.2
-Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: /home/ly/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto 67f277647ccd43a999c8aa3a88d9ea6a --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot Twos_Complement_tb_behav xil_defaultlib.Twos_Complement_tb -log elaborate.log 
-Using 8 slave threads.
-Starting static elaboration
-Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

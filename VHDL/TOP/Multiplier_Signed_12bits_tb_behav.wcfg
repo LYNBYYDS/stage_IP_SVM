@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Multiplier_Signed_12bits_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Multiplier_Signed_12bits_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.817 ns"></ZoomStartTime>
+      <ZoomEndTime time="80.131 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="212"></NameColumnWidth>
+      <ValueColumnWidth column_width="101"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="8" />
+   <wvobject fp_name="/Multiplier_Signed_12bits_tb/input_a_s" type="array">
+      <obj_property name="ElementShortName">input_a_s[11:0]</obj_property>
+      <obj_property name="ObjectShortName">input_a_s[11:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_Signed_12bits_tb/Multiplier_Signed_12bits_0/input_a_ca2" type="array">
+      <obj_property name="ElementShortName">input_a_ca2[11:0]</obj_property>
+      <obj_property name="ObjectShortName">input_a_ca2[11:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_Signed_12bits_tb/input_b_s" type="array">
+      <obj_property name="ElementShortName">input_b_s[11:0]</obj_property>
+      <obj_property name="ObjectShortName">input_b_s[11:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_Signed_12bits_tb/Multiplier_Signed_12bits_0/input_b_ca2" type="array">
+      <obj_property name="ElementShortName">input_b_ca2[11:0]</obj_property>
+      <obj_property name="ObjectShortName">input_b_ca2[11:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_Signed_12bits_tb/Multiplier_Signed_12bits_0/output_sign_s" type="logic">
+      <obj_property name="ElementShortName">output_sign_s</obj_property>
+      <obj_property name="ObjectShortName">output_sign_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_Signed_12bits_tb/Multiplier_Signed_12bits_0/output_s" type="array">
+      <obj_property name="ElementShortName">output_s[13:0]</obj_property>
+      <obj_property name="ObjectShortName">output_s[13:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_Signed_12bits_tb/Multiplier_Signed_12bits_0/output_ca2_s" type="array">
+      <obj_property name="ElementShortName">output_ca2_s[12:0]</obj_property>
+      <obj_property name="ObjectShortName">output_ca2_s[12:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_Signed_12bits_tb/ouput_s" type="array">
+      <obj_property name="ElementShortName">ouput_s[12:0]</obj_property>
+      <obj_property name="ObjectShortName">ouput_s[12:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>

@@ -1,0 +1,7 @@
+Running: xsim.dir/Kernel_rbf_tb_behav/xsimk.exe -simmode gui -wdb Kernel_rbf_tb_behav.wdb -simrunnum 0 -socket 50643
+Design successfully loaded
+Design Loading Memory Usage: 35380 KB (Peak: 35380 KB)
+Design Loading CPU Usage: 46 ms
+Simulation completed
+Simulation Memory Usage: 46792 KB (Peak: 46792 KB)
+Simulation CPU Usage: 78 ms

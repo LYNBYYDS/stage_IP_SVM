@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/liyon/Desktop/TOP/TOP.srcs/sources_1/new/Adder_Signed_20bits.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Adder_Signed_20bits'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/liyon/Desktop/TOP/TOP.srcs/sim_1/new/Adder_Signed_20bits_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Adder_Signed_20bits_tb'

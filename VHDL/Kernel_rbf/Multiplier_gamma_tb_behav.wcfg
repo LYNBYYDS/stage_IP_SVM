@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Multiplier_gamma_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Multiplier_gamma_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="2.452 ns"></ZoomStartTime>
+      <ZoomEndTime time="93.214 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="212"></NameColumnWidth>
+      <ValueColumnWidth column_width="101"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="26" />
+   <wvobject fp_name="/Multiplier_gamma_tb/input_a_s" type="array">
+      <obj_property name="ElementShortName">input_a_s[43:0]</obj_property>
+      <obj_property name="ObjectShortName">input_a_s[43:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/input_b_s" type="array">
+      <obj_property name="ElementShortName">input_b_s[11:0]</obj_property>
+      <obj_property name="ObjectShortName">input_b_s[11:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/ouput_s" type="array">
+      <obj_property name="ElementShortName">ouput_s[43:0]</obj_property>
+      <obj_property name="ObjectShortName">ouput_s[43:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/s_s0" type="array">
+      <obj_property name="ElementShortName">s_s0[55:0]</obj_property>
+      <obj_property name="ObjectShortName">s_s0[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/s_s1" type="array">
+      <obj_property name="ElementShortName">s_s1[55:0]</obj_property>
+      <obj_property name="ObjectShortName">s_s1[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/s_s2" type="array">
+      <obj_property name="ElementShortName">s_s2[55:0]</obj_property>
+      <obj_property name="ObjectShortName">s_s2[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/s_s3" type="array">
+      <obj_property name="ElementShortName">s_s3[55:0]</obj_property>
+      <obj_property name="ObjectShortName">s_s3[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/s_s4" type="array">
+      <obj_property name="ElementShortName">s_s4[55:0]</obj_property>
+      <obj_property name="ObjectShortName">s_s4[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/s_s5" type="array">
+      <obj_property name="ElementShortName">s_s5[55:0]</obj_property>
+      <obj_property name="ObjectShortName">s_s5[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/s_s6" type="array">
+      <obj_property name="ElementShortName">s_s6[55:0]</obj_property>
+      <obj_property name="ObjectShortName">s_s6[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/s_s7" type="array">
+      <obj_property name="ElementShortName">s_s7[55:0]</obj_property>
+      <obj_property name="ObjectShortName">s_s7[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/s_s8" type="array">
+      <obj_property name="ElementShortName">s_s8[55:0]</obj_property>
+      <obj_property name="ObjectShortName">s_s8[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/s_s9" type="array">
+      <obj_property name="ElementShortName">s_s9[55:0]</obj_property>
+      <obj_property name="ObjectShortName">s_s9[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/s_s10" type="array">
+      <obj_property name="ElementShortName">s_s10[55:0]</obj_property>
+      <obj_property name="ObjectShortName">s_s10[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/s_s11" type="array">
+      <obj_property name="ElementShortName">s_s11[55:0]</obj_property>
+      <obj_property name="ObjectShortName">s_s11[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/output_s0" type="array">
+      <obj_property name="ElementShortName">output_s0[55:0]</obj_property>
+      <obj_property name="ObjectShortName">output_s0[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/output_s1" type="array">
+      <obj_property name="ElementShortName">output_s1[55:0]</obj_property>
+      <obj_property name="ObjectShortName">output_s1[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/output_s2" type="array">
+      <obj_property name="ElementShortName">output_s2[55:0]</obj_property>
+      <obj_property name="ObjectShortName">output_s2[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/output_s3" type="array">
+      <obj_property name="ElementShortName">output_s3[55:0]</obj_property>
+      <obj_property name="ObjectShortName">output_s3[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/output_s4" type="array">
+      <obj_property name="ElementShortName">output_s4[55:0]</obj_property>
+      <obj_property name="ObjectShortName">output_s4[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/output_s5" type="array">
+      <obj_property name="ElementShortName">output_s5[55:0]</obj_property>
+      <obj_property name="ObjectShortName">output_s5[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/output_s6" type="array">
+      <obj_property name="ElementShortName">output_s6[55:0]</obj_property>
+      <obj_property name="ObjectShortName">output_s6[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/output_s7" type="array">
+      <obj_property name="ElementShortName">output_s7[55:0]</obj_property>
+      <obj_property name="ObjectShortName">output_s7[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/output_s8" type="array">
+      <obj_property name="ElementShortName">output_s8[55:0]</obj_property>
+      <obj_property name="ObjectShortName">output_s8[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/output_s9" type="array">
+      <obj_property name="ElementShortName">output_s9[55:0]</obj_property>
+      <obj_property name="ObjectShortName">output_s9[55:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Multiplier_gamma_tb/Multiplier_gamma_0/output_s10" type="array">
+      <obj_property name="ElementShortName">output_s10[55:0]</obj_property>
+      <obj_property name="ObjectShortName">output_s10[55:0]</obj_property>
+   </wvobject>
+</wave_config>
