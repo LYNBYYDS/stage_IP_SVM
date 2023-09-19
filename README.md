@@ -72,24 +72,19 @@ stage_IP_SVM
 │   Report of Intership
 │   
 └───python
-│   │   x
-│   │   x
-│   │
-│   └───x
-│       │   x
-│       │   x
-│       │   ...
+│   │   train.py (First part code)
+│   │   Train.xlsx (All the data can be used to train the model)
 │   
-└───code
-│   │   x
-│   │   x
+└───code (All the code for the second parts)
+│   │   
+│   │   
 │   │
-│   └───source
+│   └───source (Last version of all the source code .hdl)
 │   │   │   x
 │   │   │   x
 │   │   │   ...
 │   │
-│   └───testbench
+│   └───testbench (Last version of all the testbench code .vhd)
 │       │   x
 │       │   x
 │       │   ...
