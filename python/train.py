@@ -8,7 +8,7 @@ Created on Tue Jul  4 14:51:47 2023
 
 import pandas as pd
 from sklearn import svm
-#from sklearn import datasets
+from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
@@ -47,13 +47,13 @@ gamma_2d_range = [1e-1, 1, 1e10]
 #        print('准确率：', accuracy)
 
 
-for C in C_2d_range:
-    for gamma in gamma_2d_range:
-        rbf_svc = svm.SVC(kernel='rbf', gamma=1.3888)
+for cc in C_2d_range:
+    for gg in gamma_2d_range:
+        rbf_svc = svm.SVC(kernel='rbf', gamma=gg, C=cc)
         rbf_svc.fit(X_train, y_train)
         y_pred = rbf_svc.predict(X_test)
         accuracy = accuracy_score(y_test, y_pred)
-        print('准确率：', accuracy)
+        print('Accuracy: ', accuracy)
         print(y_pred)
 
 
