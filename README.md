@@ -75,28 +75,27 @@ stage_IP_SVM
 │   README.md
 │   Report of Intership
 │   
-└───python
-│   │   train.py (First part code)
-│   │   Train.xlsx (All the data can be used to train the model)
-│
 └───C_script
-|   |   HELPER_Exponential.c
 |   |   HELPER_TOP.c
-│   
-└───code (All the code for the second parts)
-│   │   
-│   │   
-│   │
-│   └───source (Last version of all the source code .hdl)
-│   │   │   x
-│   │   │   x
-│   │   │   ...
-│   │
-│   └───testbench (Last version of all the testbench code .vhd)
-│       │   x
-│       │   x
-│       │   ...
-│      
+|   |   HELPER_TOP_tb.c
+|   |   HELPER_Unsigned_Adder.c (not done)
+|   |   HELPER_Exponential.c
+|   |   data.h
+|
+└───TOP (Vivado Project)
+|   |   TOP.xpr(To start the project)
+|
+└───VHDL
+|   └───source (All the vhd codes)
+|   |   |...
+|   |   
+|   └───testbench (All the simulation codes)
+|       |...
+|      
+└───python
+    │   train.py (First part code)
+    │   Train.xlsx (All the data can be used to train the model)
+    
 ```
 ## C script usage
 In this project, we provide C scripts that significantly simplifie the generation of VHDL code for various components. The script's primary purpose is to streamline the creation of VHDL files, making it an efficient and error-reducing tool.
