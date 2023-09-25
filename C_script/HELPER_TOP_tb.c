@@ -14,17 +14,14 @@
 // The binary number is 11 bit 1bits for integer part and 10 bits for the fractional part
 void print_dec2bin_28bits(double a, FILE * fp)
 {
-    int sign;
     // Because the value binary with 10 bits for the fractional part
     // So i multiplier the value by 1024 for make the double to x*2¹⁰
     double a_vector;
     if (a >= 0)
     {
         a_vector = a*1024;
-        sign = 0;
     }else{
         a_vector = pow(2, 28)+a*1024;
-        sign = 1;
     }
     // Declare the value we are going to use i for iteration a_res for the inter_value
     int i, a_res;
@@ -61,14 +58,11 @@ void print_dec2bin_12bits(double a, FILE * fp)
     // Because the value binary with 10 bits for the fractional part
     // So i multiplier the value by 1024 for make the double to x*2¹⁰
     double a_vector;
-    int sign;
     if (a >= 0)
     {
         a_vector = a*1024;
-        sign = 0;
     }else{
         a_vector = pow(2, 12)+a*1024;
-        sign = 1;
     }
     // Declare the value we are going to use i for iteration a_res for the inter_value
     int i, a_res;
@@ -105,14 +99,11 @@ void print_dec2bin_20bits(double a, FILE * fp)
     // Because the value binary with 10 bits for the fractional part
     // So i multiplier the value by 1024 for make the double to x*2¹⁰
     double a_vector;
-    int sign;
     if (a >= 0)
     {
         a_vector = a*1024;
-        sign = 0;
     }else{
         a_vector = pow(2, 20)+a*1024;
-        sign = 1;
     }
     // Declare the value we are going to use i for iteration a_res for the inter_value
     int i, a_res;
@@ -205,7 +196,7 @@ void signal_SV(FILE * fp, int SV_number, double * SV)
         {
             fprintf(fp, "signal SV%d_dim%d : std_logic_vector(27 downto 0) := \"", i, j);
             print_dec2bin_28bits(SV[i*8+j], fp);
-            fprintf(fp, "\";\n");
+            fprintf(fp, "\";\t-- %.3lf\n", SV[i*8+j]);
         }
     }
     fprintf(fp, "\n");
@@ -221,14 +212,14 @@ void signal_test_data(FILE * fp, int TEST_number)
     fprintf(fp, "\n");
 }
 
-void signal_SV_alphaY(FILE * fp, int SV_number, double * result_alphaY, double * X_test)  
+void signal_SV_alphaY(FILE * fp, int SV_number, double * result_alphaY)  
 {
     int i;
     for (i = 0; i <= SV_number-1; i++)
     {
         fprintf(fp, "signal SV%d_alphaY : std_logic_vector(11 downto 0) := \"", i);
         print_dec2bin_12bits(result_alphaY[i], fp);
-        fprintf(fp, "\";\n");        
+        fprintf(fp, "\";\t-- %.3lf\n", result_alphaY[i]);        
     }
     fprintf(fp, "\n");
 }
@@ -237,7 +228,7 @@ void signal_gamma(FILE * fp, double gamma)
 {
     fprintf(fp, "signal gamma : std_logic_vector(11 downto 0) := \"");
     print_dec2bin_12bits(gamma, fp);
-    fprintf(fp, "\";\n");
+    fprintf(fp, "\";\t-- %.3lf\n", gamma);
     fprintf(fp, "\n");
 }
 
@@ -245,7 +236,7 @@ void signal_b(FILE * fp, double b)
 {
     fprintf(fp, "signal b : std_logic_vector(19 downto 0) := \"");
     print_dec2bin_20bits(b, fp);
-    fprintf(fp, "\";\n");
+    fprintf(fp, "\";\t-- %.3lf\n", b);
     fprintf(fp, "\n");
 }
 
@@ -308,7 +299,7 @@ void connect_test_data(FILE * fp, int TEST_number, double * X_test)
         for (j = 0; j <= TEST_number-1; j++)
         {
             print_dec2bin_28bits(X_test[j*8+i], fp);
-            if (j != 17)
+            if (j != TEST_number-1)
             {
                 fprintf(fp, "\" after %d ns, \"", (j+1)*10);
             }else{
@@ -319,13 +310,40 @@ void connect_test_data(FILE * fp, int TEST_number, double * X_test)
     }
 }
 
+float get_SVMresult(int SV_number, double *SV , double * result_alphaY, double * X_test, double gamma, double b)
+{
+    int i, j;
+    float result = 0;
+    for (i = 0; i <= SV_number-1; i++)
+    {
+        for (j = 0; j <= 7; j++)
+        {
+            result += result_alphaY[i] * exp(-1 * gamma * pow(SV[i*8+j]-X_test[j], 2));
+        }
+    }
+    result += b;
+    return result;
+}
+
+void result_predict(FILE * fp, int SV_number, int TEST_number, double * SV, double * result_alphaY, double * X_test, double gamma, double b)
+{
+    fprintf(fp, "-- Result Prediction\n");
+    int i;
+    for (i = 0; i <= TEST_number-1; i++)
+    {
+        float res = get_SVMresult(SV_number, SV, result_alphaY, X_test+8*i, gamma, b);
+        fprintf(fp, "result before comparation : %.3lf <= after %d ns \n", res, (i+1)*10);
+    }
+    fprintf(fp, "\n");
+}
+
 void architecture(FILE * fp, int SV_number, int TEST_number, double * SV, double * result_alphaY, double * X_test, double gamma, double b)
 {
     component_TOP(fp, SV_number);
 
     signal_SV(fp, SV_number, SV);
     signal_test_data(fp, TEST_number);
-    signal_SV_alphaY(fp, SV_number, result_alphaY, X_test);
+    signal_SV_alphaY(fp, SV_number, result_alphaY);
     signal_gamma(fp, gamma);
     signal_b(fp, b);
 
@@ -335,8 +353,9 @@ void architecture(FILE * fp, int SV_number, int TEST_number, double * SV, double
     
     connect_test_data(fp, TEST_number, X_test);
 
-    
-    fprintf(fp, "end Behavioral;\n\n");
+    result_predict(fp, SV_number, TEST_number, SV, result_alphaY, X_test, gamma, b);
+
+    fprintf(fp, "\nend Behavioral;\n\n");
 }
 
 
