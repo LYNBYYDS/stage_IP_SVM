@@ -4,15 +4,19 @@
 
 ## Table of Contents
 
-1. [Introduction to Internship Experience](#Introduction-to-Internship-Experience)
-2. [Getting Started](#Getting-Started)
-    - [Setting Up and Running the Project Locally](#Setting-Up-and-Running-the-Project-Locally)
-        * [Prerequisites:](#Prerequisites)
-        * [Installation](#Installation)
-3. [Git Repository Directory](#Git-Repository-Directory)
-4. [Authors and acknowledgment](#Authors-and-acknowledgment)
-5. [Support](#Support)
-6. [Roadmap](#Roadmap)
+- [stage\_IP\_SVM](#stage_ip_svm)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction to Internship Experience](#introduction-to-internship-experience)
+  - [Getting Started](#getting-started)
+    - [Setting Up and Running the Project Locally](#setting-up-and-running-the-project-locally)
+      - [Prerequisites](#prerequisites)
+      - [Installation](#installation)
+        - [Python Part (Training SVM Model):](#python-part-training-svm-model)
+        - [VHDL Part (Hardware Design):](#vhdl-part-hardware-design)
+  - [Git Repository Directory](#git-repository-directory)
+  - [C script usage](#c-script-usage)
+  - [Support](#support)
+  - [Authors and acknowledgment](#authors-and-acknowledgment)
 
 
 ## Introduction to Internship Experience
@@ -74,6 +78,10 @@ stage_IP_SVM
 └───python
 │   │   train.py (First part code)
 │   │   Train.xlsx (All the data can be used to train the model)
+│
+└───C_script
+|   |   HELPER_Exponential.c
+|   |   HELPER_TOP.c
 │   
 └───code (All the code for the second parts)
 │   │   
@@ -90,6 +98,35 @@ stage_IP_SVM
 │       │   ...
 │      
 ```
+## C script usage
+In this project, we provide C scripts that significantly simplifie the generation of VHDL code for various components. The script's primary purpose is to streamline the creation of VHDL files, making it an efficient and error-reducing tool.
+
+__Benefits of the C Script__
+Our C script offers several advantages for VHDL code generation:
+
+__Efficiency:__ The exponential block, for instance, involves a vast number of possible inputs. By using our script, you can generate large lookup tables (LUTs) swiftly and accurately. This automation prevents manual errors and ensures precision.
+
+__Flexibility:__ The number of support vectors in machine learning models like SVMs can vary. Instead of modifying VHDL code manually each time, our C script allows you to adjust this parameter effortlessly.
+
+__Ease of Implementation:__ The script simplifies the process of implementing hardware components for your project, making it more accessible to both novice and experienced developers.
+
+__How to Use the C Script__
+Follow these steps to utilize the C script for VHDL code generation:
+
+- Navigate to the Script Directory: Open your command-line interface or terminal and go to the directory containing the C script.
+
+    ```cd /gitdir/C_script```
+- Compile the Script: Use a C compiler to compile the script. For instance, with GCC, compile the script with the following command:
+
+    ```gcc script_name.c -o script_name```
+
+    Replace script_name.c with the script's actual filename and script_name with your desired executable name.
+- Run the Executable: After compilation, execute the script by running the compiled executable:
+    
+    ```./script_name```
+
+    The script will guide you through the process of generating VHDL files, including any necessary input or parameter adjustments.
+
 
 ## Support
 - Email : liyongmb@gmail.com

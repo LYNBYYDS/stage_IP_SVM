@@ -1,7 +1,0 @@
-Running: xsim.dir/Adder_Unsigned_28bits_tb_behav/xsimk.exe -simmode gui -wdb Adder_Unsigned_28bits_tb_behav.wdb -simrunnum 0 -socket 50690
-Design successfully loaded
-Design Loading Memory Usage: 8644 KB (Peak: 8644 KB)
-Design Loading CPU Usage: 0 ms
-Simulation completed
-Simulation Memory Usage: 9168 KB (Peak: 9168 KB)
-Simulation CPU Usage: 0 ms

@@ -1,1 +1,0 @@
---incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "Square_Difference_tb_behav" "xil_defaultlib.Square_Difference_tb" -log "elaborate.log" 

@@ -1,7 +1,0 @@
-Running: xsim.dir/Square_Difference_tb_behav/xsimk.exe -simmode gui -wdb Square_Difference_tb_behav.wdb -simrunnum 0 -socket 51307
-Design successfully loaded
-Design Loading Memory Usage: 10904 KB (Peak: 10904 KB)
-Design Loading CPU Usage: 0 ms
-Simulation completed
-Simulation Memory Usage: 13096 KB (Peak: 13096 KB)
-Simulation CPU Usage: 0 ms
