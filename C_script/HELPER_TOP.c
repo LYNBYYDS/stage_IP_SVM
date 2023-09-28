@@ -2,6 +2,129 @@
 #include <stdlib.h>
 
 
+void Kernel_rbf_signal(FILE * fp, int SV_number)
+{
+    int i;
+    fprintf(fp,"-- Kernel_rbf output Signal\n");
+    for (i = 0; i <= SV_number-1; i++)
+    {
+        fprintf(fp,"signal Kernel_rbf_output_s%d : std_logic_vector(10 downto 0); \n",i);
+    }
+    fprintf(fp,"\n");
+}
+
+void multiplier_signal(FILE * fp, int SV_number)
+{
+    int i;
+    fprintf(fp,"-- Multiplier output Signal\n");
+    for (i = 0; i <= SV_number-1; i++)
+    {
+        fprintf(fp,"signal multi_s%d : std_logic_vector(12 downto 0);\n", i);
+    }
+    fprintf(fp,"\n");
+}
+
+void convertor_signal(FILE * fp, int SV_number)
+{
+    int i;
+    fprintf(fp,"-- Convertor output Signal\n");
+    for (i = 0; i <= SV_number-1; i++)
+    {
+        fprintf(fp,"signal conv_s%d : std_logic_vector(19 downto 0);\n", i);
+    }
+    fprintf(fp,"\n");
+}
+
+void adder_signal(FILE * fp, int SV_number)
+{
+    int i;
+    fprintf(fp,"-- Adder output Signal\n");
+    for (i = 0; i <= SV_number-1; i++)
+    {
+        fprintf(fp,"signal add_output_s%d : std_logic_vector(19 downto 0);\n", i);
+    }
+    fprintf(fp,"\n");
+    for (i = 0; i <= SV_number-1; i++)
+    {
+        fprintf(fp,"signal add_overflow_s%d : std_logic;\n", i);
+    }
+    fprintf(fp,"\n");
+}
+
+
+
+
+void connection_Kernel_rbf(FILE * fp, int SV_number)
+{
+    int i, j;
+    for (i = 0; i <= SV_number-1; i++)
+    {
+        fprintf(fp,"\tKernel_rbf_%d : Kernel_rbf\n\tport map(\t", i);
+        for (j = 0; j <= 7; j++)
+        {
+            fprintf(fp,"SV_dim%d => SV%d_dim%d,\n\t\t\t\t", j, i, j);
+        }
+        for (j = 0; j <= 7; j++)
+        {
+            fprintf(fp,"test_data_dim%d => test_data_dim%d,\n\t\t\t\t", j, j);
+        }
+        fprintf(fp,"gamma => gamma,\n\t\t\t\t");
+        fprintf(fp,"output => Kernel_rbf_output_s%d\n\t\t\t\t",i);
+        fprintf(fp,");\n\n");
+    }
+}
+
+void connection_multiplier(FILE * fp, int SV_number)
+{
+    int i;
+    for (i = 0; i <= SV_number-1; i++)
+    {
+        fprintf(fp,"\tMultiplier_Signed_12bits_%d : Multiplier_Signed_12bits\n\tport map(\t", i);
+        fprintf(fp,"input_a => SV%d_alphaY,\n\t\t\t\t", i);
+        fprintf(fp,"input_b(11) => '0',\n\t\t\t\t");
+        fprintf(fp,"input_b(10 downto 0) => Kernel_rbf_output_s%d,\n\t\t\t\t", i);
+        fprintf(fp,"output => multi_s%d\n\t\t\t\t", i);
+        fprintf(fp,");\n\n");
+    }
+}
+
+void connection_convertor(FILE * fp, int SV_number)
+{
+    int i;
+    for (i = 0; i <= SV_number-1; i++)
+    {
+        fprintf(fp,"\tConvertor_Signed_13to20bits_%d : Convertor_Signed_13to20bits\n\tport map(\t", i);
+        fprintf(fp,"input => multi_s%d,\n\t\t\t\t", i);
+        fprintf(fp,"output => conv_s%d\n\t\t\t\t", i);
+        fprintf(fp,");\n\n");
+    }
+}
+
+void connection_adder(FILE * fp, int SV_number)
+{
+    int i;
+    fprintf(fp,"\tAdder_Signed_20bits_0 : Adder_Signed_20bits\n\tport map(\t");
+        
+        fprintf(fp,"input_a => b,\n\t\t\t\t");
+        fprintf(fp,"input_b => conv_s0,\n\t\t\t\t");
+        fprintf(fp,"output => add_output_s0,\n\t\t\t\t");
+        fprintf(fp,"overflow => add_overflow_s0\n\t\t\t\t");
+        fprintf(fp,");\n\n");
+    for (i = 1; i <= SV_number-1; i++)
+    {
+        fprintf(fp,"\tAdder_Signed_20bits_%d : Adder_Signed_20bits\n\tport map(\t", i);
+        
+        fprintf(fp,"input_a => add_output_s%d,\n\t\t\t\t", i-1);
+        fprintf(fp,"input_b => conv_s%d,\n\t\t\t\t", i);
+        fprintf(fp,"output => add_output_s%d,\n\t\t\t\t", i);
+        fprintf(fp,"overflow => add_overflow_s%d\n\t\t\t\t", i);
+        fprintf(fp,");\n\n");
+    }
+}
+
+
+
+
 void entitytop(FILE * fp, int SV_number)
 {
     fprintf(fp,"entity TOP is \n\tport(\t");
@@ -51,7 +174,7 @@ void entitytop(FILE * fp, int SV_number)
 
 void architecture(FILE * fp, int SV_number)
 {
-    int i, j;
+    int i;
 
     // Architecture Start
     fprintf(fp, "architecture Behavioral of TOP is\n\n");
@@ -137,137 +260,7 @@ void architecture(FILE * fp, int SV_number)
     fprintf(fp, "end Behavioral;\n");
 }   
             
-            
-
-
-    
-            
-
-
-
-
-
-void Kernel_rbf_signal(FILE * fp, int SV_number)
-{
-    int i;
-    fprintf(fp,"-- Kernel_rbf output Signal\n");
-    for (i = 0; i <= SV_number-1; i++)
-    {
-        fprintf(fp,"signal Kernel_rbf_output_s%d : std_logic_vector(10 downto 0); \n",i);
-    }
-    fprintf(fp,"\n");
-}
-
-void multiplier_signal(FILE * fp, int SV_number)
-{
-    int i;
-    fprintf(fp,"-- Multiplier output Signal\n");
-    for (i = 0; i <= SV_number-1; i++)
-    {
-        fprintf(fp,"signal multi_s%d : std_logic_vector(12 downto 0);\n", i);
-    }
-    fprintf(fp,"\n");
-}
-
-void convertor_signal(FILE * fp, int SV_number)
-{
-    int i;
-    fprintf(fp,"-- Convertor output Signal\n");
-    for (i = 0; i <= SV_number-1; i++)
-    {
-        fprintf(fp,"signal conv_s%d : std_logic_vector(19 downto 0);\n", i);
-    }
-    fprintf(fp,"\n");
-}
-
-void adder_signal(FILE * fp, int SV_number)
-{
-    int i;
-    fprintf(fp,"-- Adder output Signal\n");
-    for (i = 0; i <= SV_number-1; i++)
-    {
-        fprintf(fp,"signal add_output_s%d : std_logic_vector(19 downto 0);\n", i);
-    }
-    fprintf(fp,"\n");
-    for (i = 0; i <= SV_number-1; i++)
-    {
-        fprintf(fp,"signal add_overflow_s%d : std_logic;\n", i);
-    }
-    fprintf(fp,"\n");
-}
-
-
-
-
-
-
-void connection_Kernel_rbf(FILE * fp, int SV_number)
-{
-    int i, j;
-    for (i = 0; i <= SV_number-1; i++)
-    {
-        fprintf(fp,"\tKernel_rbf_%d : Kernel_rbf\n\tport map(\t", i);
-        for (j = 0; j <= 7; j++)
-        {
-            fprintf(fp,"SV_dim%d => SV%d_dim%d,\n\t\t\t\t", j, i, j);
-        }
-        for (j = 0; j <= 7; j++)
-        {
-            fprintf(fp,"test_data_dim%d => test_data_dim%d,\n\t\t\t\t", j, j);
-        }
-        fprintf(fp,"gamma => gamma,\n\t\t\t\t");
-        fprintf(fp,"output => Kernel_rbf_output_s%d\n\t\t\t\t",i);
-        fprintf(fp,");\n\n");
-    }
-}
-
-void connection_multiplier(FILE * fp, int SV_number)
-{
-    int i;
-    for (i = 0; i <= SV_number-1; i++)
-    {
-        fprintf(fp,"\tMultiplier_Signed_12bits_%d : Multiplier_Signed_12bits\n\tport map(\t", i);
-        fprintf(fp,"input_a => SV%d_alphaY,\n\t\t\t\t", i);
-        fprintf(fp,"input_b(11) => '0',\n\t\t\t\t");
-        fprintf(fp,"input_b(10 downto 0) => Kernel_rbf_output_s%d,\n\t\t\t\t", i);
-        fprintf(fp,"output => multi_s%d\n\t\t\t\t", i);
-        fprintf(fp,");\n\n");
-    }
-}
-
-void connection_convertor(FILE * fp, int SV_number)
-{
-    int i;
-    for (i = 0; i <= SV_number-1; i++)
-    {
-        fprintf(fp,"\tConvertor_Signed_13to20bits_%d : Convertor_Signed_13to20bits\n\tport map(\t", i);
-        fprintf(fp,"input => multi_s%d,\n\t\t\t\t", i);
-        fprintf(fp,"output => conv_s%d\n\t\t\t\t", i);
-        fprintf(fp,");\n\n");
-    }
-}
-
-void connection_adder(FILE * fp, int SV_number)
-{
-    int i;
-    fprintf(fp,"\tAdder_Signed_20bits_0 : Adder_Signed_20bits\n\tport map(\t");
         
-        fprintf(fp,"input_a => b,\n\t\t\t\t");
-        fprintf(fp,"input_b => conv_s0,\n\t\t\t\t");
-        fprintf(fp,"output => add_output_s0,\n\t\t\t\t");
-        fprintf(fp,"overflow => add_overflow_s0\n\t\t\t\t");
-        fprintf(fp,");\n\n");
-    for (i = 1; i <= SV_number-1; i++)
-    {
-        fprintf(fp,"\tAdder_Signed_20bits_%d : Adder_Signed_20bits\n\tport map(\t", i);
-        
-        fprintf(fp,"input_a => add_output_s%d,\n\t\t\t\t", i-1);
-        fprintf(fp,"input_b => conv_s%d,\n\t\t\t\t", i);
-        fprintf(fp,"output => add_output_s%d,\n\t\t\t\t", i);
-        fprintf(fp,"overflow => add_overflow_s%d\n\t\t\t\t", i);
-        fprintf(fp,");\n\n");
-    }
-}
 
 int main(void)
 {    
@@ -290,8 +283,6 @@ int main(void)
     fclose(fp);
     return 0;
 }
-
-
 
 
 /*
