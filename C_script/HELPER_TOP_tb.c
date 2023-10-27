@@ -3,8 +3,8 @@
 #include <math.h>
 #include "data.h"
 
-#define SV_NUMBER 2
-#define TEST_NUMBER 3
+#define SV_NUMBER 71
+#define TEST_NUMBER 18
 
 /*---------------------------------------------------------------------------------------------------------------------*/
 /*                                            void print_dec2bin_28bits(double a)                                      */ 
@@ -207,7 +207,7 @@ void signal_test_data(FILE * fp, int TEST_number)
     int i;
     for (i = 0; i <= TEST_number-1; i++)
     {
-    fprintf(fp, "test_data_dim%d : in std_logic_vector(27 downto 0) => (others => '0'); \n", i);
+    fprintf(fp, "signal test_data_dim%d : std_logic_vector(27 downto 0) := (others => '0'); \n", i);
     }
     fprintf(fp, "\n");
 }
@@ -327,12 +327,12 @@ float get_SVMresult(int SV_number, double *SV , double * result_alphaY, double *
 
 void result_predict(FILE * fp, int SV_number, int TEST_number, double * SV, double * result_alphaY, double * X_test, double gamma, double b)
 {
-    fprintf(fp, "-- Result Prediction\n");
+    fprintf(fp, "\t-- Result Prediction\n");
     int i;
     for (i = 0; i <= TEST_number-1; i++)
     {
         float res = get_SVMresult(SV_number, SV, result_alphaY, X_test+8*i, gamma, b);
-        fprintf(fp, "result before comparation : %.3lf <= after %d ns \n", res, (i+1)*10);
+        fprintf(fp, "\t--result before comparation : %.3lf <= after %d ns \n", res, (i+1)*10);
     }
     fprintf(fp, "\n");
 }
@@ -346,6 +346,7 @@ void architecture(FILE * fp, int SV_number, int TEST_number, double * SV, double
     signal_SV_alphaY(fp, SV_number, result_alphaY);
     signal_gamma(fp, gamma);
     signal_b(fp, b);
+    signal_output(fp);
 
     fprintf(fp, "begin\n\n");
 
